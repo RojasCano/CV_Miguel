@@ -1371,7 +1371,7 @@ const CV_DATA = {
       sub:{ es:"Base académica de ingeniería + formación continua en negocio y IA", en:"Engineering academic base + continuous learning in business & AI" },
       education:[
         { y:"1996 — 2000", t:{ es:"Ingeniero Técnico Industrial", en:"Industrial Technical Engineer" }, d:{ es:"Especialidad en mecánica · Graduado con honores", en:"Mechanics specialty · Graduated with honors" } },
-        { y:"2000 — [COMPLETAR]", t:{ es:"Ingeniero Industrial", en:"Industrial Engineer" }, d:{ es:"Especialidad en organización industrial", en:"Industrial organization specialty" } },
+        { y:"2000", t:{ es:"Ingeniero Industrial", en:"Industrial Engineer" }, d:{ es:"Especialidad en organización industrial", en:"Industrial organization specialty" } },
         { y:"2019", t:{ es:"The Power MBA — MSc in Business & Management", en:"The Power MBA — MSc in Business & Management" }, d:{ es:"Estrategia, modelos de negocio y management", en:"Strategy, business models & management" } },
         { y:"2020", t:{ es:"Project Management Professional (prep. EIGP)", en:"Project Management Professional (EIGP prep.)" }, d:{ es:"Preparación de la certificación PMP", en:"PMP certification preparation" } },
         { y:"2023", t:{ es:"MBA Real Estate · Cooperativas de vivienda", en:"Real Estate MBA · Housing cooperatives" }, d:{ es:"Experto en gestión de cooperativas de vivienda", en:"Expert in housing cooperative management" } },
@@ -1408,12 +1408,17 @@ const CV_DATA = {
         title:{ es:"Intereses", en:"Interests" },
         chips:{
           es:["Wing Chun","Mountain Bike","Lectura (~2 libros/mes)","Motociclismo","Nuevas tecnologías & gadgets","Enseñar a mis hijos"],
-          en:["Wing Chun","Mountain Bike","Reading (~2 books/mo)","Motorcycling","New tech & gadgets","Teaching my kids"]
+          en:["Wing Chun","Mountain Bike","Reading (~2 books/mo)","Motorcycling","New tech & gadgets","Teaching my kids"],
+          zh:["咏春拳","山地自行车","阅读 (每月约2本)","摩托骑行","新科技与数码产品","教导孩子"]
         }
       },
       certs:{
         title:{ es:"Certificaciones & cursos destacados", en:"Key certifications & courses" },
-        chips:["Google Partner","Cursor AI","LLMs","Open Claw","Scrum Manager","PNL Master Practitioner","Kepner-Tregoe","LEAN Expert (Airbus)","Coaching ICC","Competent Leader","TRIZ","Future Leader Program","Presto","CTE / RITE","AutoCAD","Java / SQL / Oracle"]
+        chips:{
+          es:["Google Partner","Cursor AI","LLMs","Open Claw","Scrum Manager","PNL Master Practitioner","Kepner-Tregoe","LEAN Expert (Airbus)","Coaching ICC","Competent Leader","TRIZ","Future Leader Program","Presto","CTE / RITE","AutoCAD","Java / SQL / Oracle"],
+          en:["Google Partner","Cursor AI","LLMs","Open Claw","Scrum Manager","PNL Master Practitioner","Kepner-Tregoe","LEAN Expert (Airbus)","Coaching ICC","Competent Leader","TRIZ","Future Leader Program","Presto","CTE / RITE","AutoCAD","Java / SQL / Oracle"],
+          zh:["Google Partner","Cursor AI","大语言模型 (LLMs)","Open Claw","Scrum 经理","NLP 高级执行师","Kepner-Tregoe","精益专家 (空客)","教练认证 ICC","胜任领导者","TRIZ","未来领袖计划","Presto","CTE / RITE","AutoCAD","Java / SQL / Oracle"]
+        }
       }
     },
   ]
@@ -1468,6 +1473,7 @@ const ZH = {
   "Responsable de Maqueta Digital": "数字样机负责人",
   "Proyectos propios": "个人项目",
   "Real Estate Developer": "房地产开发商",
+  "ROJASCANO Proyectos Inmobiliarios · Cádiz": "ROJASCANO 房地产项目 · 加的斯",
   "Consultoría propia": "自有咨询公司",
   "Cofundador & HO Strategic Consulting": "联合创始人兼战略咨询主管",
   "Fundador · Formación y Consultoría": "创始人 · 培训与咨询",
@@ -1542,6 +1548,7 @@ const ZH = {
   "Avanzado (Proficient)": "高级 (精通)",
   "Francés": "法语",
   "Principiante": "初级",
+  "Elemental": "初级",
   "Chino 中文": "中文",
   "Elemental · Hànyǔ + Hànzì": "初级 · 汉语 + 汉字",
   "Perfil & Extras": "个人特质与其他",
@@ -1554,10 +1561,122 @@ const ZH = {
   "Positivo: motivación y entusiasmo contagiosos.": "积极:富有感染力的动力与热情。",
   "Estratégico: prevé varios caminos e inculca la visión.": "战略型:预见多种路径并传递愿景。",
   "Intereses": "兴趣爱好",
-  "Certificaciones & Cursos destacados": "重点认证与课程",
+  "Certificaciones & cursos destacados": "重点认证与课程",
   "Apasionado por la <b>mejora continua</b>, la <b>mentalidad Kaizen</b> y, sobre todo, por las <b>personas</b>: convencido de que los procesos y las rutinas marcan el camino, pero son los equipos quienes marcan la diferencia. Combino <b>orientación a resultados</b> con una alta capacidad de adaptación, y disfruto desarrollando y desplegando programas estratégicos que convierten la visión en ejecución.<br><br>Tras más de <b>24 años</b> en entornos industriales exigentes —Lean, AOS, performance, digitalización y gestión de proyectos E2E— he aprendido a liderar 'tiger teams', a gestionar con alto rendimiento y a tender puentes entre los estándares corporativos y la realidad de la planta. Aprendiz constante, miro al futuro mientras gestiono el presente, integrando nuevas tecnologías de forma ágil.<br><br>Actualizo este perfil para optar al puesto de <b>Head of AOS, Performance & Digitalización en FAL Tianjin</b>, con la intención de aportar la <b>estabilidad y el liderazgo</b> necesarios para afrontar los grandes retos de los nuevos programas y el ambicioso <b>ramp-up</b> de los próximos años.": "我热爱<b>持续改善</b>、<b>改善 (Kaizen) 理念</b>,尤其是<b>人</b>:我坚信流程与日常机制指明方向,而真正带来改变的是团队。我兼具<b>结果导向</b>与高度适应力,热衷于制定并推动将愿景转化为执行的战略性方案。<br><br>在超过 <b>24 年</b>的高要求工业环境中——精益、AOS、绩效、数字化与端到端项目管理——我学会了带领\"虎队\"、以高绩效进行管理,并在企业标准与工厂现实之间架起桥梁。作为持续学习者,我在管理当下的同时着眼未来,以敏捷的方式整合新技术。<br><br>我正在更新此简历,以申请<b>天津总装线 (FAL Tianjin) AOS、绩效与数字化负责人</b>一职,期望带来应对新项目重大挑战以及未来数年雄心勃勃的<b>产能爬坡 (ramp-up)</b> 所需的<b>稳定性与领导力</b>。",
   "<b>Getafe</b> (+12 años) · <b>Toulouse</b> Central Entity (~2 años, viajes semanales) · <b>Cádiz</b> (7 años) · <b>Tianjin</b> (desde nov. 2024). Soporte directo a distintas plantas de Comercial / Defence&amp;Space (Illescas, FAL Hamburg, FAL Mobile, Sevilla, Broughton, etc.).": "<b>赫塔菲</b> (12年以上) · <b>图卢兹</b> 中央实体 (约2年,每周出差) · <b>加的斯</b> (7年) · <b>天津</b> (自2024年11月起)。直接支持民机/防务与航天 (Commercial / Defence&amp;Space) 的多座工厂 (伊耶斯卡斯、汉堡总装线、莫比尔总装线、塞维利亚、布劳顿等)。",
   "Distintas áreas de negocio: <b>AOS &amp; Performance</b> · <b>Calidad</b> · <b>Facility Management &amp; RE</b> · <b>Training</b> · <b>IT &amp; Digitalización</b>, etc.": "涉及多个业务领域:<b>AOS 与绩效</b> · <b>质量</b> · <b>设施管理与房地产</b> · <b>培训</b> · <b>IT 与数字化</b> 等。",
+  "**Transformación cultural** y coaching: actúa como agente de cambio estratégico, entrenando a directivos y mandos intermedios para que pasen de ejecutores a promotores de la mejora.": "<b>文化转型</b>与教练:作为战略变革推动者,培训高管与中层管理者,使其从执行者转变为改善的推动者。",
+  "**Evaluaciones de madurez y enlace global con los estándares corporativos**: estructura las fases del despliegue en planta, audita la madurez operativa de cada área e identifica las brechas de competencias, funcionando como puente bidireccional entre los estándares de la sede central y la realidad de la planta, asegurando la adopción de mejores prácticas y evitando la dilución de los estándares globales.": "<b>成熟度评估与对接企业全球标准</b>:规划工厂部署阶段,审核各领域的运营成熟度并识别能力差距,在总部标准与工厂现实之间充当双向桥梁,确保最佳实践的落地并防止全球标准被稀释。",
+  "**Autonomía operativa, resolución de problemas y Task Forces**: empoderando a los equipos de planta para alcanzar los objetivos de producción diarios, liderando equipos de acción rápida ante problemas sistémicos, desde el diagnóstico hasta la implementación de soluciones.": "<b>运营自主、问题解决与专项小组 (Task Forces)</b>:赋能一线团队达成每日生产目标,带领快速行动小组应对系统性问题,从诊断到方案落地全程负责。",
+  "**Integración de sistemas**: implantando el MES como única fuente de verdad y la adherencia al SLB y el CVAT como las métricas que nos guían hacia un estándar más eficiente, asegurando que se diseña un sistema único y optimizado para la gestión de las dos líneas en FAL Tianjin (en términos de mindset, rutinas y sistema).": "<b>系统整合</b>:将 MES 作为唯一真实数据源,以 SLB 与 CVAT 的遵循度作为引导我们走向更高效标准的指标,确保为天津总装线 (FAL Tianjin) 两条产线设计统一且优化的管理系统(在理念、日常机制与系统层面)。",
+  "Lidero un **equipo de 7 personas** y gestiono un presupuesto de **25 M€** para consolidar dos plantas de Airbus en Cádiz en una sola.": "带领 <b>7 人团队</b>,管理 <b>2,500 万欧元</b>预算,将加的斯的两座空客工厂整合为一座。",
+  "Gestión integral E2E: estrategia y alcance, plazos (coordinando obra civil con reubicación de línea de montaje), costes (change proposals, capex, forecast), calidad, stakeholders (SteerCo, programas, ingeniería, contratistas, Ayuntamiento…), comunicación, riesgos y oportunidades, y aprovisionamiento.": "端到端 (E2E) 全面管理:战略与范围、工期(协调土建工程与装配线搬迁)、成本(变更提案、资本支出、预测)、质量、干系人(指导委员会、项目、工程、承包商、市政府……)、沟通、风险与机会,以及采购。",
+  "Habilité a Product Owners para entregar mediante prácticas Lean/Agile efectivas según premisas AOS.": "依据 AOS 原则,赋能产品负责人 (Product Owner) 通过高效的精益/敏捷实践交付成果。",
+  "Responsable de la estrategia de desarrollo MES, prioridades (arquitectura y features) y plan.": "负责 MES 开发战略、优先级(架构与功能)及计划。",
+  "Impulsé buenas prácticas AOS y la migración de aplicaciones de fabricación dispersas a un único framework integrado.": "推动 AOS 最佳实践,并将分散的制造类应用迁移至统一的集成框架。",
+  "**Despliegue de estrategia y política**: definición de la estrategia general de la planta (valor diferencial, way forward), liderando el despliegue general de AOS y la sostenibilidad de los estándares operativos, coordinando directamente con los equipos centrales.": "<b>战略与方针部署</b>:定义工厂总体战略(差异化价值、前进方向),主导 AOS 的整体部署与运营标准的可持续性,并与中央团队直接协调。",
+  "**Performance**: BSC de programas, gestión de Capex, HCs (headcounts) y seguimiento de KPIs operativos.": "<b>绩效</b>:项目平衡计分卡 (BSC)、资本支出 (Capex) 管理、人员编制 (HC) 及运营关键绩效指标 (KPI) 跟踪。",
+  "**Digitalización**: establece la estrategia digital organizativa y supervisa su implementación para estandarizar y mejorar la eficiencia de los procesos de negocio.": "<b>数字化</b>:制定组织数字化战略并监督其实施,以标准化并提升业务流程的效率。",
+  "**Gestión del cambio, liderazgo y mejora continua retando el status quo**: coordinación de excelencia industrial, difusión, networking y modelo de liderazgo AOS.": "<b>挑战现状的变革管理、领导力与持续改善</b>:统筹工业卓越、推广传播、人脉网络与 AOS 领导力模型。",
+  "Referente interno para impulsar y habilitar la excelencia de negocio aplicando los principios, herramientas y técnicas AOS.": "作为内部标杆,运用 AOS 的原则、工具与方法推动并赋能业务卓越。",
+  "Lideré la mejora y evaluación de la madurez industrial, autonomía y competencias del negocio mediante coaching.": "通过教练方式,主导工业成熟度、自主性与业务能力的提升与评估。",
+  "Parte de un **reducido grupo de Expertos** que definió, desde cero, el AOS: los estándares y rutinas que marcan el presente y futuro de Airbus.": "<b>少数核心专家团队</b>成员之一,从零定义了 AOS:塑造空客现在与未来的标准与日常机制。",
+  "Definición, desarrollo y despliegue de estándares de trabajo, comportamientos, rutinas y modelos de gobierno para una empresa más eficiente, transparente, ágil y sostenible.": "定义、开发并部署工作标准、行为规范、日常机制与治理模型,打造更高效、透明、敏捷且可持续的企业。",
+  "Desarrollo y externalización de los 'Training Paths' que garantizan las competencias transversales identificadas.": "开发并外包\"培训路径 (Training Paths)\",以确保所识别出的跨职能能力。",
+  "Tutorizando sesiones en las distintas plantas para identificar stakeholders, palancas y áreas piloto donde empezar a implantar los recién creados bricks.": "在各工厂带教辅导,识别干系人、关键杠杆与试点区域,作为新建模块 (bricks) 的落地起点。",
+  "Desarrollo de contenidos y formación en técnicas de mejora de productividad y eficiencia.": "开发培训内容并讲授提升生产力与效率的技术。",
+  "Impartiendo cursos y workshops técnicos a **+1000 personas** cada año (desde nivel 1 a nivel 4) en plantas españolas, francesas, alemanas e inglesas.": "每年为 <b>1,000 余人</b>(从一级到四级)在西班牙、法国、德国与英国的工厂讲授技术课程与工作坊。",
+  "Lideré workshops, PPS, Kaizen, HK y VSM, con soporte y coaching especializado a demanda. Facilitador y formador Kepner-Tregoe.": "主导各类工作坊、PPS、Kaizen、HK 与 VSM,并按需提供专业支持与教练辅导。Kepner-Tregoe 引导师与培训师。",
+  "Responsable de la implantación LEAN en S19.1 del A380, Repair Station y para la tecnología de composites de la planta de Getafe.": "负责 A380 S19.1、维修站及赫塔菲工厂复合材料技术的精益 (LEAN) 推行。",
+  "SME del 'Lighthouse' de sistemas PULL para la planta de Getafe. Representante único de información para todo DG.": "赫塔菲工厂拉动系统 (PULL) \"灯塔\"项目的领域专家 (SME)。全 DG 范围的唯一信息代表。",
+  "Coordinación del equipo responsable de pruebas funcionales y despliegue de software CAD/CAM/PDM en Airbus España.": "统筹负责空客西班牙 CAD/CAM/PDM 软件功能测试与部署的团队。",
+  "Project manager: lideré reuniones de coordinación con IT, gestión y optimización de recursos (licencias, HW, FTEs).": "项目经理:主持与 IT 部门的协调会议,管理并优化资源(许可证、硬件、人力 FTE)。",
+  "Administrador de sistemas UNIX y CAD/CAM/PDM (Catia V4/V5, EPD Connect, WindChill…).": "UNIX 系统及 CAD/CAM/PDM 管理员(Catia V4/V5、EPD Connect、WindChill……)。",
+  "Definición, seguimiento y análisis de KPIs operativos; responsable de mejora continua y soporte técnico de 2º nivel.": "定义、跟踪并分析运营 KPI;负责持续改善与二线技术支持。",
+  "Soporte CAD/CAM/PDM y coordinación de la maqueta digital de 2 proyectos militares: EJ200 y X-31.": "CAD/CAM/PDM 支持,并协调两个军用项目的数字样机:EJ200 与 X-31。",
+  "Ejecución de ensayos estructurales en modelos digitales.": "在数字模型上执行结构试验。",
+  "Localización de oportunidades de inversión; compra y reforma de edificios para apartamentos y hoteles en la provincia de Cádiz (socio de Ritual Hotels y otros).": "寻找投资机会;在加的斯省收购并改造楼宇用作公寓与酒店(Ritual Hotels 等的合伙人)。",
+  "Promotor de la rehabilitación integral de un edificio del s.XVII con **11 viviendas**.": "一座 17 世纪建筑整体修复项目的开发商,含 <b>11 套住宅</b>。",
+  "Gestión de todo el ciclo: parcela, proyectos, licencias, seguros, ayuntamiento, notaría, marketing, financiación, contratación y seguimiento de obra.": "全周期管理:地块、设计、许可、保险、市政府、公证、营销、融资、签约与施工监督。",
+  "Superación del periodo más complejo del sector: COVID, guerra de Rusia, huelga de transporte, subida de materias primas y el hallazgo de un puerto fenicio (s.III a.C.).": "成功度过行业最艰难的时期:新冠疫情、俄乌战争、运输罢工、原材料涨价,以及发现一座腓尼基港口(公元前 3 世纪)。",
+  "Consultoría para el desarrollo de nuevos modelos de negocio online; identificación y desarrollo de micro, multi y mega nichos.": "为新型线上商业模式开发提供咨询;识别并开拓微型、多元与大型利基市场。",
+  "Lideré workshops en Lean Innovation Forums (Design Thinking, innovación en pequeñas empresas, desarrollo de MVPs) y focus-groups para startups de Telefónica, PhoneHouse y otras tecnológicas.": "在精益创新论坛主持工作坊(设计思维、小企业创新、最小可行产品 MVP 开发),并为 Telefónica、PhoneHouse 等科技公司的初创项目组织焦点小组。",
+  "Seminarios y conferencias motivacionales ad-hoc; cursos presenciales, online y 'train the trainers'.": "定制化研讨会与激励演讲;线下、线上及\"培训培训师 (train the trainers)\"课程。",
+  "Conferencias en universidades: <b>Universidad Complutense de Madrid</b>, <b>Politécnica de Cataluña</b> y <b>Universidad de Cádiz</b>, entre otras.": "在多所大学举办讲座:<b>马德里康普顿斯大学</b>、<b>加泰罗尼亚理工大学</b>与<b>加的斯大学</b>等。",
+  "Soluciones para empresas y startups: diagnóstico situacional, sistemas de mejora de productividad, recruitment de talento, gestión del cambio, liderazgo y coaching.": "为企业与初创公司提供解决方案:现状诊断、生产力提升系统、人才招聘、变革管理、领导力与教练辅导。",
+  "Oficina de ingeniería dedicada a proyectos en las distintas áreas de la ingeniería civil. Roles de dirección general, marketing y ventas.": "专注于土木工程各领域项目的工程事务所。担任总经理、营销与销售等角色。",
+  "Proyectos técnicos y dirección de obra.": "技术设计与施工管理。",
+  "Responsable de campañas publicitarias en el sur de Madrid para hipermercados, supermercados y conocidas marcas de restauración.": "负责马德里南部大型超市、超市与知名餐饮品牌的广告活动。",
+  "Definí las directrices estratégicas clave de la expansión del negocio en España, logrando el **mejor arranque** de la franquicia en +15 años con margen récord.": "制定了该业务在西班牙扩张的关键战略方针,实现了该特许经营 15 年来 <b>最佳开局</b>,利润率创纪录。",
+  "Roadmap de expansión para empresas y franquicias: proyectos para obtener licencias de actividad y dirección de obra.": "为企业与特许经营制定扩张路线图:办理经营许可的项目与施工管理。",
+  "Diagnóstico y análisis situacional para medianas y grandes empresas; planes de alineación con objetivos.": "为中大型企业提供现状诊断与分析;制定与目标对齐的方案。",
+  "Responsable de Sistema de Mejora del Rendimiento: visión, misión, cambios organizativos y objetivos estratégicos junto a propietarios y comités de dirección.": "负责绩效改善体系:与业主及管理委员会共同制定愿景、使命、组织变革与战略目标。",
+  "Años de experiencia profesional.": "年专业经验。",
+  "Distintas áreas de negocio: <b>AOS &amp; Performance</b>, <b>Calidad</b>, <b>Facility Management &amp; RE</b>, <b>Training</b>, <b>IT &amp; Digitalización</b>, etc.": "涉及多个业务领域:<b>AOS 与绩效</b>、<b>质量</b>、<b>设施管理与房地产</b>、<b>培训</b>、<b>IT 与数字化</b> 等。",
+  "<b>Getafe</b> (+12 años) · <b>Toulouse</b> Central Entity (~2 años, viajes semanales) · <b>Cádiz</b> (7 años) · <b>Tianjin</b> (desde nov. 2024), con soporte directo a plantas de Comercial / Defence&amp;Space (Illescas, FAL Hamburg, FAL Mobile, Sevilla, Broughton…).": "<b>赫塔菲</b>(12 年以上)· <b>图卢兹</b>中央实体(约 2 年,每周出差)· <b>加的斯</b>(7 年)· <b>天津</b>(自 2024 年 11 月起),并直接支持民机/防务与航天的多座工厂(伊耶斯卡斯、汉堡总装线、莫比尔总装线、塞维利亚、布劳顿……)。",
+  "Ayudadas a alcanzar su máximo potencial, pivotar su modelo de negocio y/o mejorar su presencia digital.": "帮助其释放最大潜力、转型商业模式并/或提升数字化形象。",
+  "VSM · PPS · Hoshin Kanri": "VSM · PPS · 方针管理 (Hoshin Kanri)",
+  "Kepner-Tregoe (facilitador)": "Kepner-Tregoe(引导师)",
+  "Project Mgmt E2E (PMP prep. · LBIP+)": "端到端项目管理 (PMP 备考 · LBIP+)",
+  "Capex · Costes · Forecast": "资本支出 · 成本 · 预测",
+  "Gestión de stakeholders": "干系人管理",
+  "Scrum / Lean-Agile": "Scrum / 精益敏捷",
+  "Gestión del cambio": "变革管理",
+  "Coaching & mentoring": "教练与辅导",
+  "Estrategia & business models": "战略与商业模式",
+  "Emprendimiento & startups": "创业与初创企业",
+  "Oratoria & comunicación": "演讲与沟通",
+  "Data Analytics": "数据分析",
+  "Vibe Coding": "氛围编程 (Vibe Coding)",
+  "CAD/CAM/PDM (Catia V4/V5)": "CAD/CAM/PDM (Catia V4/V5)",
+  "MES & Industria 4.0": "MES 与工业 4.0",
+  "Creación de contenido (CapCut, Midjourney, ElevenLabs, Suno, Veo 3, Runway…)": "内容创作 (CapCut、Midjourney、ElevenLabs、Suno、Veo 3、Runway…)",
+  "LLMs: ChatGPT · Gemini · Claude": "大语言模型:ChatGPT · Gemini · Claude",
+  "IA aplicada (Máster + Cert.)": "应用人工智能(硕士 + 认证)",
+  "Programación & gestión agéntica (Claude Code, OpenAI, n8n…)": "智能体编程与编排 (Claude Code、OpenAI、n8n…)",
+  "Prompting & automatización de workflows": "提示工程与工作流自动化",
+  "LEAN / AOS / Kaizen": "精益 / AOS / 改善",
+  "APTs · PolyPoly · CVAT": "APTs · PolyPoly · CVAT",
+  "Expert": "专家级",
+  "Senior": "资深",
+  "Trainer": "培训师",
+  "Cert.": "已认证",
+  "Champ.": "冠军",
+  "Adv.": "高级",
+  "PM": "产品经理",
+  "Antiguo HAY13 · Assessment superado en Toulouse (2018).": "原 HAY13 级 · 2018 年于图卢兹通过评估。",
+  "Business Excellence": "业务卓越",
+  "Change Mgmt": "变革管理",
+  "Coaching": "教练辅导",
+  "Conferencias": "演讲",
+  "Design Thinking": "设计思维",
+  "Digital Mockup": "数字样机",
+  "Digitalización": "数字化",
+  "Dirección de obra": "施工管理",
+  "Formación": "培训",
+  "Governance": "治理",
+  "Hoteles": "酒店",
+  "Ingeniería civil": "土木工程",
+  "Inmobiliario": "房地产",
+  "Licencias": "许可",
+  "Madurez": "成熟度",
+  "Marketing": "营销",
+  "Performance System": "绩效体系",
+  "Project Mgmt": "项目管理",
+  "Publicidad": "广告",
+  "Rehabilitación": "建筑修复",
+  "Récord margen": "利润率纪录",
+  "Stakeholders": "干系人",
+  "Standards": "标准",
+  "Startups": "初创企业",
+  "Strategy": "战略",
+  "Task Forces": "专项小组",
+  "Training Paths": "培训路径",
+  "Lean & Mejora Continua": "精益与持续改善",
+  "Gestión de Proyectos": "项目管理",
+  "Liderazgo & Estrategia": "领导力与战略",
+  "Técnico & Digital": "技术与数字化",
+  "IA & Automatización": "人工智能与自动化",
 };
 
 const SVG = {
@@ -1646,17 +1765,27 @@ function renderHero(){
 /* ── Familias de actividad (código de colores discreto) ── */
 const CATS = {
   /* ── Familias de Airbus ── */
-  facility:  { es:"Facility Management",        en:"Facility Management",         color:"var(--cat-facility)" },
-  digital:   { es:"IT · Digitalización · CAD/CAM/PDM", en:"IT · Digitalisation · CAD/CAM/PDM",   color:"var(--cat-digital)" },
-  aoscentral:{ es:"AOS Central & Training",     en:"AOS Central & Training",       color:"var(--cat-aos)" },
-  perf:      { es:"Performance & Improvement · Planta", en:"Performance & Improvement · Plant", color:"var(--cat-perf)" },
+  facility:  { es:"Facility Management",        en:"Facility Management",         zh:"设施管理",                       color:"var(--cat-facility)" },
+  digital:   { es:"IT · Digitalización · CAD/CAM/PDM", en:"IT · Digitalisation · CAD/CAM/PDM", zh:"IT · 数字化 · CAD/CAM/PDM",  color:"var(--cat-digital)" },
+  aoscentral:{ es:"AOS Central & Training",     en:"AOS Central & Training",       zh:"AOS 中央与培训",                 color:"var(--cat-aos)" },
+  perf:      { es:"Performance & Improvement · Planta", en:"Performance & Improvement · Plant", zh:"绩效与改善 · 工厂",          color:"var(--cat-perf)" },
   /* ── Familias de proyectos propios ── */
-  realestate:{ es:"Real Estate · Construcción", en:"Real Estate · Construction",   color:"var(--cat-realestate)" },
-  training:  { es:"Formación · Consultoría",    en:"Training · Consulting",        color:"var(--cat-training)" },
-  business:  { es:"Negocio · Emprendimiento",   en:"Business · Entrepreneurship",  color:"var(--cat-business)" },
+  realestate:{ es:"Real Estate · Construcción", en:"Real Estate · Construction",   zh:"房地产 · 建筑",                  color:"var(--cat-realestate)" },
+  training:  { es:"Formación · Consultoría",    en:"Training · Consulting",        zh:"培训 · 咨询",                    color:"var(--cat-training)" },
+  business:  { es:"Negocio · Emprendimiento",   en:"Business · Entrepreneurship",  zh:"商业 · 创业",                    color:"var(--cat-business)" },
 };
 /* convierte **texto** en un badge de hito destacado */
 function mdHL(s){ return s.replace(/\*\*(.+?)\*\*/g, '<mark class="hit">$1</mark>'); }
+/* traduce una cadena suelta al chino vía diccionario ZH (para arrays de bullets) */
+function zt(s){ if(LANG==='zh' && typeof s==='string' && ZH[s]) return ZH[s]; return s; }
+/* devuelve el array de detalle traducido: en zh, parte del español y traduce cada bullet */
+function detailArr(it){
+  if(LANG==='zh'){
+    const base = it.detail.es || it.detail.en || [];
+    return base.map(d=> (ZH[d] || d));
+  }
+  return L(it.detail);
+}
 
 /* ── Render secciones ── */
 function renderSections(){
@@ -1723,7 +1852,7 @@ function tlHTML(items){
   const yearOf = d => { const m = String(d).match(/\d{4}/); return m ? m[0] : ''; };
   const isNow = d => /hoy|now|present|actual/i.test(String(d));
   return `<div class="timeline">
-    <span class="tl-axis-cap tl-axis-now">${LANG==='es'?'HOY':'NOW'}</span>`
+    <span class="tl-axis-cap tl-axis-now">${LANG==='es'?'HOY':(LANG==='zh'?'现在':'NOW')}</span>`
     +items.map((it,i)=>{
     const c = it.cat ? CATS[it.cat] : null;
     const accent = c ? c.color : 'var(--accent)';
@@ -1744,8 +1873,8 @@ function tlHTML(items){
           </span>
         </div>
         <div class="tl-detail">
-          <ul>${L(it.detail).map(d=>`<li>${mdHL(d)}</li>`).join('')}</ul>
-          <div class="tl-tags">${c?`<span class="cat-tag" style="--c:${accent}">${catName}</span>`:''}${(it.tags||[]).map(t=>`<span>${t}</span>`).join('')}</div>
+          <ul>${detailArr(it).map(d=>`<li>${mdHL(d)}</li>`).join('')}</ul>
+          <div class="tl-tags">${c?`<span class="cat-tag" style="--c:${accent}">${catName}</span>`:''}${(it.tags||[]).map(t=>`<span>${zt(t)}</span>`).join('')}</div>
         </div>
       </div>
     </div>`;
@@ -1761,7 +1890,7 @@ function clHTML(clusters){
       <h3>${SVG[c.icon]||''}${L(c.title)}</h3>
       ${c.skills.map(sk=>`
         <div class="skill">
-          <div class="row"><b>${L(sk.n)}</b><em>${sk.t}</em></div>
+          <div class="row"><b>${L(sk.n)}</b><em>${zt(sk.t)}</em></div>
           <div class="bar"><i data-lvl="${sk.lvl}"></i></div>
         </div>`).join('')}
     </div>`).join('');
@@ -1802,8 +1931,8 @@ function eduHTML(s){
       <div class="dots">${dots}</div></div>`;
   }).join('');
   return `<div class="two-col edu-twocol">
-    <div><h3 style="font-family:var(--font-display);text-transform:uppercase;font-size:13px;letter-spacing:.05em;margin-bottom:16px;color:var(--ink-soft)">${LANG==='es'?'Académico':'Academic'}</h3><div class="edu-list">${edu}</div></div>
-    <div><h3 style="font-family:var(--font-display);text-transform:uppercase;font-size:13px;letter-spacing:.05em;margin-bottom:16px;color:var(--ink-soft)">${LANG==='es'?'Idiomas':'Languages'}</h3><div class="lang-wrap">${langs}</div></div>
+    <div><h3 style="font-family:var(--font-display);text-transform:uppercase;font-size:13px;letter-spacing:.05em;margin-bottom:16px;color:var(--ink-soft)">${LANG==='es'?'Académico':(LANG==='zh'?'学术背景':'Academic')}</h3><div class="edu-list">${edu}</div></div>
+    <div><h3 style="font-family:var(--font-display);text-transform:uppercase;font-size:13px;letter-spacing:.05em;margin-bottom:16px;color:var(--ink-soft)">${LANG==='es'?'Idiomas':(LANG==='zh'?'语言':'Languages')}</h3><div class="lang-wrap">${langs}</div></div>
   </div>`;
 }
 
@@ -1821,7 +1950,7 @@ function extraHTML(s){
         <h3>${SVG.tech}${L(s.interests.title)}</h3>
         <div class="chips">${L(s.interests.chips).map(c=>`<span class="chip">${c}</span>`).join('')}</div>
         <h3 style="margin-top:18px">${SVG.lean}${L(s.certs.title)}</h3>
-        <div class="chips">${s.certs.chips.map(c=>`<span class="chip">${c}</span>`).join('')}</div>
+        <div class="chips">${L(s.certs.chips).map(c=>`<span class="chip">${c}</span>`).join('')}</div>
       </div>
     </div>`;
 }
