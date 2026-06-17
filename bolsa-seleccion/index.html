@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bolsa Selección — Filtro de los Tres Candados</title>
+<style>
+  :root{
+    --bg:#0d1321; --panel:#161d31; --panel2:#1d2640; --border:#2a3556;
+    --txt:#e8ecf6; --muted:#8b96b5; --acc:#4f8cff; --ok:#2ecc8f; --ko:#ff5f6d; --warn:#f5b942;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--txt);min-height:100vh}
+  .wrap{max-width:1100px;margin:0 auto;padding:32px 20px 60px}
+  header{text-align:center;margin-bottom:36px}
+  header h1{font-size:2rem;letter-spacing:.5px}
+  header p{color:var(--muted);margin-top:8px;font-size:1.05rem}
+  .paso{color:var(--acc);font-weight:700;font-size:.85rem;text-transform:uppercase;letter-spacing:1.5px;margin:26px 0 12px}
+  .mercados{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+  .mercado{background:var(--panel);border:2px solid var(--border);border-radius:14px;padding:20px;cursor:pointer;text-align:center;transition:.15s}
+  .mercado:hover{transform:translateY(-2px);border-color:var(--acc)}
+  .mercado.sel{border-color:var(--acc);background:var(--panel2);box-shadow:0 0 0 3px rgba(79,140,255,.25)}
+  .mercado .bandera{font-size:2.4rem}
+  .mercado h3{margin:8px 0 4px;font-size:1.2rem}
+  .mercado small{color:var(--muted)}
+  .opciones{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:18px 20px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+  .switch{position:relative;width:52px;height:28px;flex-shrink:0}
+  .switch input{opacity:0;width:0;height:0}
+  .slider{position:absolute;inset:0;background:#39456b;border-radius:28px;cursor:pointer;transition:.2s}
+  .slider:before{content:"";position:absolute;width:22px;height:22px;left:3px;top:3px;background:#fff;border-radius:50%;transition:.2s}
+  .switch input:checked + .slider{background:var(--ok)}
+  .switch input:checked + .slider:before{transform:translateX(24px)}
+  .opciones b{font-size:1rem}
+  .opciones small{color:var(--muted);display:block;margin-top:2px}
+  .analizar{display:block;width:100%;margin-top:22px;padding:16px;font-size:1.15rem;font-weight:700;color:#fff;
+    background:linear-gradient(90deg,#4f8cff,#7a5cff);border:none;border-radius:14px;cursor:pointer;transition:.15s}
+  .analizar:hover{filter:brightness(1.1)}
+  .analizar:disabled{opacity:.55;cursor:wait}
+  #cargando{display:none;text-align:center;margin:36px 0}
+  .spinner{width:46px;height:46px;border:5px solid var(--border);border-top-color:var(--acc);border-radius:50%;margin:0 auto 14px;animation:gira .8s linear infinite}
+  @keyframes gira{to{transform:rotate(360deg)}}
+  #cargando p{color:var(--muted)}
+  #error{display:none;background:rgba(255,95,109,.12);border:1px solid var(--ko);color:#ffb3ba;border-radius:12px;padding:16px;margin-top:24px}
+  #resultados{display:none;margin-top:34px}
+  .resumen{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-bottom:22px}
+  .kpi{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:14px;text-align:center}
+  .kpi .v{font-size:1.5rem;font-weight:800}
+  .kpi .l{color:var(--muted);font-size:.82rem;margin-top:4px}
+  .pills{margin:-6px 0 18px;display:flex;gap:8px;flex-wrap:wrap}
+  .pill{background:rgba(46,204,143,.15);border:1px solid var(--ok);color:var(--ok);border-radius:20px;padding:4px 12px;font-size:.82rem}
+  h2.bloque{font-size:1.15rem;margin:24px 0 12px}
+  .tabla-scroll{overflow-x:auto;border:1px solid var(--border);border-radius:12px}
+  table{width:100%;border-collapse:collapse;font-size:.92rem;min-width:760px}
+  th{background:var(--panel2);color:var(--muted);text-align:left;padding:11px 12px;font-size:.78rem;text-transform:uppercase;letter-spacing:.7px;white-space:nowrap}
+  td{padding:11px 12px;border-top:1px solid var(--border);white-space:nowrap}
+  tr.gana{background:rgba(46,204,143,.08)}
+  .num{text-align:right;font-variant-numeric:tabular-nums}
+  .pos{color:var(--ok);font-weight:600}.neg{color:var(--ko);font-weight:600}
+  .chip{display:inline-block;width:26px;text-align:center;border-radius:6px;font-weight:700}
+  .chip.si{color:var(--ok)}.chip.no{color:var(--ko)}.chip.na{color:var(--muted)}
+  .estado{font-weight:700}
+  .empresa b{display:block}.empresa small{color:var(--muted)}
+  .candados-info{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;margin-top:40px}
+  .cinfo{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:18px}
+  .cinfo h4{margin-bottom:8px}
+  .cinfo p{color:var(--muted);font-size:.9rem;line-height:1.5}
+  footer{text-align:center;color:var(--muted);font-size:.8rem;margin-top:44px;line-height:1.6}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>🔐 Filtro de los Tres Candados</h1>
+    <p>Screener de acciones: liquidez institucional · tendencia y fuerza relativa · entorno sectorial</p>
+  </header>
+
+  <div class="paso">Paso 1 · Elige un mercado</div>
+  <div class="mercados" id="mercados">
+    <div class="mercado sel" data-mercado="america">
+      <div class="bandera">🇺🇸</div><h3>América</h3><small>S&amp;P 500 · grandes valores de EE. UU.</small>
+    </div>
+    <div class="mercado" data-mercado="europa">
+      <div class="bandera">🇪🇺</div><h3>Europa</h3><small>EURO STOXX 50 · líderes europeos</small>
+    </div>
+    <div class="mercado" data-mercado="asia">
+      <div class="bandera">🌏</div><h3>Asia</h3><small>Nikkei 225 · Japón, HK, Corea y Taiwán</small>
+    </div>
+  </div>
+
+  <div class="paso">Paso 2 · Opciones</div>
+  <div class="opciones">
+    <label class="switch"><input type="checkbox" id="sector"><span class="slider"></span></label>
+    <div>
+      <b>Activar Candado 3 (filtro sectorial)</b>
+      <small>Exige además que la acción pertenezca al Top 30 % de sectores por rendimiento a 3 meses.</small>
+    </div>
+  </div>
+
+  <button class="analizar" id="btn">🔍 Analizar mercado</button>
+
+  <div id="cargando"><div class="spinner"></div><p id="msgCarga">Descargando datos de mercado…</p></div>
+  <div id="error"></div>
+
+  <div id="resultados">
+    <div class="resumen" id="resumen"></div>
+    <div class="pills" id="pills"></div>
+    <h2 class="bloque" id="tituloGanadoras"></h2>
+    <div class="tabla-scroll"><table id="tablaGanadoras"></table></div>
+    <h2 class="bloque">📋 Detalle completo del universo analizado</h2>
+    <div class="tabla-scroll"><table id="tablaTodas"></table></div>
+  </div>
+
+  <div class="candados-info">
+    <div class="cinfo"><h4>🔒 Candado 1 · Liquidez</h4>
+      <p>Capitalización &gt; 1.000 millones y volumen negociado medio de 20 sesiones (precio × volumen) &gt; 20 millones. Solo valores donde operan las instituciones.</p></div>
+    <div class="cinfo"><h4>🔒 Candado 2 · Tendencia y alfa</h4>
+      <p>Precio por encima de su media móvil de 200 sesiones, con la SMA 200 en pendiente alcista, y rendimiento a 3 meses superior al del índice de referencia.</p></div>
+    <div class="cinfo"><h4>🔒 Candado 3 · Sector líder (opcional)</h4>
+      <p>La acción debe pertenecer a un sector situado en el Top 30 % por rendimiento mediano a 3 meses dentro de su mercado.</p></div>
+  </div>
+
+  <footer>
+    Datos diarios de Yahoo Finance · Capitalización aproximada en divisa local · Herramienta educativa: no constituye recomendación de inversión.
+  </footer>
+</div>
+
+<script>
+const $ = (id) => document.getElementById(id);
+let mercado = "america";
+
+document.querySelectorAll(".mercado").forEach(card => {
+  card.onclick = () => {
+    document.querySelectorAll(".mercado").forEach(c => c.classList.remove("sel"));
+    card.classList.add("sel");
+    mercado = card.dataset.mercado;
+  };
+});
+
+const mensajes = [
+  "Descargando 2 años de histórico diario…",
+  "Calculando medias móviles de 200 sesiones…",
+  "Comparando fuerza relativa contra el índice…",
+  "Evaluando los tres candados…"
+];
+
+const fmt = (n, dec = 2) => n.toLocaleString("es-ES", {minimumFractionDigits: dec, maximumFractionDigits: dec});
+const pct = (n) => `<span class="${n >= 0 ? "pos" : "neg"}">${n >= 0 ? "+" : ""}${fmt(n)}%</span>`;
+const chip = (v) => v === null || v === undefined ? '<span class="chip na">—</span>'
+  : v ? '<span class="chip si">✓</span>' : '<span class="chip no">✗</span>';
+const mcap = (n) => fmt(n / 1e9, 0) + " B";
+
+$("btn").onclick = async () => {
+  $("btn").disabled = true;
+  $("resultados").style.display = "none";
+  $("error").style.display = "none";
+  $("cargando").style.display = "block";
+  let i = 0;
+  $("msgCarga").textContent = mensajes[0];
+  const rot = setInterval(() => { i = (i + 1) % mensajes.length; $("msgCarga").textContent = mensajes[i]; }, 3500);
+  try {
+    const r = await fetch(`/api/screen?mercado=${mercado}&sector=${$("sector").checked ? 1 : 0}`);
+    const d = await r.json();
+    if (!r.ok || d.error) throw new Error(d.error || `Error HTTP ${r.status}`);
+    pintar(d);
+  } catch (e) {
+    $("error").style.display = "block";
+    $("error").innerHTML = `<b>⚠️ No se pudo completar el análisis.</b><br>${e.message}<br><small>Vuelve a intentarlo en unos segundos.</small>`;
+  } finally {
+    clearInterval(rot);
+    $("cargando").style.display = "none";
+    $("btn").disabled = false;
+  }
+};
+
+function pintar(d) {
+  const validas = d.acciones.filter(a => !a.error);
+  const ganadoras = validas.filter(a => a.pasa);
+
+  $("resumen").innerHTML = `
+    <div class="kpi"><div class="v">${d.nombre_indice}</div><div class="l">Índice de referencia</div></div>
+    <div class="kpi"><div class="v">${pct(d.rendimiento_indice_3m)}</div><div class="l">Rendimiento 3M del índice</div></div>
+    <div class="kpi"><div class="v">${d.acciones.length}</div><div class="l">Acciones analizadas</div></div>
+    <div class="kpi"><div class="v" style="color:var(--ok)">${ganadoras.length}</div><div class="l">Superan el filtro</div></div>`;
+
+  $("pills").innerHTML = d.candado_sector_activo
+    ? `<span class="pill">Candado 3 activo</span>` + d.sectores_lideres.map(s => `<span class="pill">🏆 ${s}</span>`).join("")
+    : `<span class="pill" style="border-color:var(--muted);color:var(--muted);background:transparent">Candado 3 desactivado</span>`;
+
+  $("tituloGanadoras").textContent = ganadoras.length
+    ? `✅ ${ganadoras.length} acciones superan los ${d.candado_sector_activo ? "tres" : "dos"} candados (${d.nombre_mercado})`
+    : `Ninguna acción supera el filtro en ${d.nombre_mercado} ahora mismo`;
+
+  const cab = `<tr><th>Empresa</th><th class="num">Precio</th><th class="num">Market Cap</th>
+    <th class="num">Dist. SMA200</th><th class="num">Rend. 3M</th><th class="num">vs Índice</th>
+    <th>Sector</th><th>C1</th><th>C2</th><th>C3</th><th>Resultado</th></tr>`;
+
+  const fila = (a) => {
+    if (a.error) return `<tr><td class="empresa"><b>${a.nombre}</b><small>${a.ticker}</small></td>
+      <td colspan="9" style="color:var(--muted)">Sin datos suficientes — descartada automáticamente</td>
+      <td class="estado" style="color:var(--muted)">—</td></tr>`;
+    const alfa = a.rendimiento_3m - d.rendimiento_indice_3m;
+    return `<tr class="${a.pasa ? "gana" : ""}">
+      <td class="empresa"><b>${a.nombre}</b><small>${a.ticker} · ${a.sector}</small></td>
+      <td class="num">${fmt(a.precio)}</td>
+      <td class="num">${mcap(a.market_cap)}</td>
+      <td class="num">${pct(a.dist_sma200)}</td>
+      <td class="num">${pct(a.rendimiento_3m)}</td>
+      <td class="num">${pct(alfa)}</td>
+      <td>${a.sector}</td>
+      <td>${chip(a.candado1)}</td><td>${chip(a.candado2)}</td><td>${chip(a.candado3)}</td>
+      <td class="estado" style="color:var(${a.pasa ? "--ok" : "--ko"})">${a.pasa ? "APTA" : "Descartada"}</td>
+    </tr>`;
+  };
+
+  $("tablaGanadoras").innerHTML = cab + (ganadoras.map(fila).join("") ||
+    `<tr><td colspan="11" style="color:var(--muted)">— Prueba a desactivar el Candado 3 o elige otro mercado —</td></tr>`);
+  $("tablaTodas").innerHTML = cab + d.acciones.map(fila).join("");
+  $("resultados").style.display = "block";
+  $("resultados").scrollIntoView({behavior: "smooth"});
+}
+</script>
+</body>
+</html>
